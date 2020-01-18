@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t vpashynskyi/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true vpashynskyi/docker-react yarn test
